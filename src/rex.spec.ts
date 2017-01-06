@@ -4,9 +4,9 @@ describe('Rex', function () {
     expect(Rex).toBeDefined();
   });
 
-  it('Definindo um modulo chamado add', function () {
+  it('Definir modulo Soma', function () {
 
-    Rex('add', function () {
+    Rex('soma', function () {
       return function (a, b) {
         return a + b;
       };
@@ -14,33 +14,7 @@ describe('Rex', function () {
     
   });
 
-  it('Verificando se o modulo add esta definido', function () {
-
-    Rex(function ({ add }) {
-      expect(add).toBeDefined();
-    });
-    
-  });
-
-  it('Consumindo modulo add', function () {
-
-    Rex(function ({ add }) {
-      expect(add(1, 2)).toBe(3);
-    });
-    
-  });
-
-  it('Definindo um modulo chamado soma, composto pelo modulo add', function () {
-
-    Rex('soma', function ({ add }) {
-      return function (a, ...b) {
-        return b.reduce(add, a);
-      };
-    });
-    
-  });
-
-  it('Verificando se o modulo soma esta definido', function () {
+  it('Modulo Soma esta definido', function () {
 
     Rex(function ({ soma }) {
       expect(soma).toBeDefined();
@@ -48,12 +22,38 @@ describe('Rex', function () {
     
   });
 
-  it('Consumindo o modulo soma', function () {
+  it('Soma dois numeros', function () {
 
     Rex(function ({ soma }) {
-      expect(soma(1)).toBe(1);
       expect(soma(1, 2)).toBe(3);
-      expect(soma(1, 2, 3)).toBe(6);
+    });
+    
+  });
+
+  it('Definir modulo Calcula', function () {
+
+    Rex('calcula', function () {
+      return function (operador, a, ...b) {
+        return b.reduce(operador, a);
+      };
+    });
+    
+  });
+
+  it('Modulo Calcula esta definido', function () {
+
+    Rex(function ({ calcula }) {
+      expect(calcula).toBeDefined();
+    });
+    
+  });
+
+  it('Calcular a Soma de numeros', function () {
+
+    Rex(function ({ calcula, soma }) {
+      expect(calcula(soma, 1)).toBe(1);
+      expect(calcula(soma, 1, 2)).toBe(3);
+      expect(calcula(soma, 1, 2, 3)).toBe(6);
     });
     
   });
