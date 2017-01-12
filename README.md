@@ -14,6 +14,7 @@ Para eventuais erros de digitação e/ou tradução, favor enviar um pull-reques
 ## Tabela de Conteúdos
 
 * [Rex](https://github.com/cleber-programmer/cleber.programmer/blob/master/src)
+* [radio](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/radio)
 
 Leia a tradução do artigo [“How it feels to learn Javascript in 2016”](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.p89yfl61i), entenda **o porque** optei por não utilizar nenhum **Framework JavaScript**.
 
