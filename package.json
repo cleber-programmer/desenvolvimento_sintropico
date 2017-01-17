@@ -5,7 +5,7 @@
   "main": "rex.ts",
   "scripts": {
     "build": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.config.js"
   },
   "author": "Cleber de Moraes Goncalves",
   "license": "ISC",
