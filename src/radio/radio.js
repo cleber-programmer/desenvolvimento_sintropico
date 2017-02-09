@@ -8,12 +8,6 @@ Rex('radio', function (_, { handlers = new Map() }) {
                 return target[name] || (target[name] = new Set);
             }
         }));
-        Object.assign(context, {
-            oldDetachedCallback: context.detachedCallback || function () { },
-            detachedCallback() {
-                handlers.delete(context), this.oldDetachedCallback();
-            }
-        });
         function get(channel) {
             return handlers.get(context)[channel];
         }
@@ -29,7 +23,7 @@ Rex('radio', function (_, { handlers = new Map() }) {
         emit(channel, ...args) {
             for (let [context, proxy] of handlers.entries())
                 for (let target of proxy[channel])
-                    target.apply(context, args);
+                    target.apply(context, JSON.parse(JSON.stringify(args)));
             return this;
         }
     });

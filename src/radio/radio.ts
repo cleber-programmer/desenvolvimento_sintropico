@@ -27,27 +27,6 @@ Rex('radio', function (_, { handlers = new Map() }) {
     }));
 
     /**
-     * Estendendo o contexto, para posteriormente forçar o desligamento dos
-     * canais, como se foce um Garbage Colector
-     */
-    Object.assign(context, {
-
-      /**
-       * Referencia o metodo detachedCallback, que sera subistiido posteriormente
-       */
-      oldDetachedCallback: context.detachedCallback || function () {},
-
-      /**
-       * Substitui o methodo detachedCallback, para forçar o desligamento
-       * dos canais do contexto conjulgado
-       */
-      detachedCallback() {
-        handlers.delete(context), this.oldDetachedCallback();
-      }
-
-    });
-
-    /**
      * Localiza dentro do Map o canal pelo contexto conjulgado
      */
     function get(channel) {
