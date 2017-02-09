@@ -4,7 +4,6 @@
   "description": "JavaScript é como uma folha em branco - 'A liberdade de programar do jeito que faça sentido pra você!'",
   "main": "rex.ts",
   "scripts": {
-    "build": "gulp",
     "test": "karma start karma.config.js"
   },
   "author": "Cleber de Moraes Goncalves",
