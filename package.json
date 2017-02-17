@@ -4,20 +4,14 @@
   "description": "JavaScript é como uma folha em branco - 'A liberdade de programar do jeito que faça sentido pra você!'",
   "main": "rex.ts",
   "scripts": {
-    "test": "karma start karma.config.js"
+    "test": ""
   },
   "author": "Cleber de Moraes Goncalves",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^2.0.0",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.3.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-mocha-reporter": "^2.2.1",
-    "karma-typescript-preprocessor": "^0.3.0"
+    "gulp-traceur": "^0.17.2",
+    "gulp-uglify": "^2.0.1"
   }
 }
