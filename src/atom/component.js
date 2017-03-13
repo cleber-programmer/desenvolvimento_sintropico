@@ -1,13 +1,17 @@
-Rex('atom.component', function () {
+Rex(function ({ atom }) {
 
-  return function component(tagName) {
-    return function (target) {
+	Object.assign(atom, {
 
-      document.registerElement(tagName, {
-        prototype: Object.assign(Object.create(HTMLElement.prototype), target.prototype)
-      });
+    component: function (tagName) {
+      return function (target) {
 
-    };
-  };
+        document.registerElement(tagName, {
+          prototype: Object.assign(Object.create(HTMLElement.prototype), target.prototype)
+        });
+
+      };
+    }
+
+  });
 
 });

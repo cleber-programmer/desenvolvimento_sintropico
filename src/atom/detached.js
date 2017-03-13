@@ -1,17 +1,21 @@
-Rex('atom.detached', function () {
+Rex(function ({ atom }) {
 
-  return function detached(target, prop, descriptor) {
+  Object.assign(atom, {
 
-    let hook = target.detachedCallback || function () {};
+    detached: function (target, prop, descriptor) {
 
-    Object.assign(target, {
-      detachedCallback() {
-        descriptor.value.call(this), hook.call(this);
-      }      
-    });
+      let hookDetached = target.detachedCallback || Function;
 
-    return descriptor;
+      Object.assign(target, {
+        detachedCallback() {
+          descriptor.value.call(this), hookDetached.call(this);
+        }      
+      });
 
-  }
+      return descriptor;
+
+    }
+
+  });
 
 });

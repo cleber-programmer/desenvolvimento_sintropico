@@ -1,17 +1,21 @@
-Rex('atom.created', function () {
+Rex(function ({ atom }) {
 
-  return function created(target, prop, descriptor) {
+  Object.assign(atom, {
 
-    let hook = target.createdCallback || function () {};
+    created: function (target, prop, descriptor) {
 
-    Object.assign(target, {
-      createdCallback() {
-        descriptor.value.call(this), hook.call(this);
-      }      
-    });
+      let hookCreated = target.createdCallback || Function;
 
-    return descriptor;
+      Object.assign(target, {
+        createdCallback() {
+          descriptor.value.call(this), hookCreated.call(this);
+        }      
+      });
 
-  }
+      return descriptor;
+
+    }
+
+  });
 
 });
