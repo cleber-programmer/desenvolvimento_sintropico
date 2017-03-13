@@ -19,7 +19,7 @@
      * hoisting dos Modulos registrado
      */
     onload() {
-      modules.forEach(module => module(proxy, {}));
+      modules.forEach(module => module(proxy));
     }
 
   });
@@ -35,7 +35,7 @@
    * construtora
    */
   get(target, name, receiver) {
-    return target['@'][name] || (target['@'][name] = target[name](receiver, {}));
+    return target['@'][name] || (target['@'][name] = target[name](receiver));
   }
   
 }));
