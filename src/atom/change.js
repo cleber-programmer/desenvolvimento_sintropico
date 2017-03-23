@@ -13,9 +13,11 @@ Rex(function ({ atom }) {
 
         Object.assign(target, {
           attributeChangedCallback(name, oldValue, newValue) {
-            contains(name) && (descriptor.value.call(this, newValue, oldValue, name), hookAttribute.call(this, name, oldValue, newValue));
+            contains(name) && (this[prop](newValue, oldValue, name), hookAttribute.call(this, name, oldValue, newValue));
           }      
         });
+
+        Object.assign(descriptor, { enumerable: !0 });
 
         return descriptor;
 

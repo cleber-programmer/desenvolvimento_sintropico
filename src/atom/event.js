@@ -9,7 +9,7 @@ Rex(function ({ atom }) {
         let hookDetached = target.detachedCallback || Function;
 
         function action(e) {
-          e.target.matches(query) && descriptor.value.call(this, e);
+          e.target.matches(query) && this[prop](e);
         }
 
         Object.assign(target, {
@@ -23,6 +23,8 @@ Rex(function ({ atom }) {
           }
 
         });
+
+        Object.assign(descriptor, { enumerable: !0 });
 
         return descriptor;
 

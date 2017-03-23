@@ -7,10 +7,14 @@ Rex(function ({ atom }) {
       let hookAttached = target.attachedCallback || Function;
 
       Object.assign(target, {
+
         attachedCallback() {
-          descriptor.value.call(this), hookAttached.call(this);
-        }      
+          this[prop](), hookAttached.call(this);
+        }
+
       });
+
+      Object.assign(descriptor, { enumerable: !0 });
 
       return descriptor;
 

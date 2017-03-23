@@ -8,9 +8,11 @@ Rex(function ({ atom }) {
 
       Object.assign(target, {
         detachedCallback() {
-          descriptor.value.call(this), hookDetached.call(this);
+          this[prop](), hookDetached.call(this);
         }      
       });
+
+      Object.assign(descriptor, { enumerable: !0 });
 
       return descriptor;
 

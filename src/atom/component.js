@@ -2,11 +2,12 @@ Rex(function ({ atom }) {
 
 	Object.assign(atom, {
 
-    component: function (tagName) {
+    component: function (tagName, extending) {
       return function (target) {
 
-        document.registerElement(tagName, {
-          prototype: Object.assign(Object.create(HTMLElement.prototype), target.prototype)
+      	document.registerElement(tagName, {
+          prototype: Object.assign(Object.create(HTMLUnknownElement.prototype), target.prototype),
+          extends: extending
         });
 
       };
