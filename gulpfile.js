@@ -11,7 +11,19 @@ gulp.task('rex', function () {
             presets: ['react-native-stage-0/decorator-support']
          }))
         .pipe(concat('rex.min.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
+        .pipe(sourceMaps.write('.'))
+        .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('hook', function () {
+    return gulp.src('src/hook/*.js')
+        .pipe(sourceMaps.init())
+        .pipe(babel({
+            presets: ['react-native-stage-0/decorator-support']
+         }))
+        .pipe(concat('rex.hook.min.js'))
+        .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
 });
@@ -23,7 +35,7 @@ gulp.task('atom', function () {
             presets: ['react-native-stage-0/decorator-support']
          }))
         .pipe(concat('rex.atom.min.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
 });
@@ -35,7 +47,7 @@ gulp.task('radio', function () {
             presets: ['react-native-stage-0/decorator-support']
          }))
         .pipe(concat('rex.radio.min.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
 });
@@ -47,13 +59,13 @@ gulp.task('bootstrap', function () {
             presets: ['react-native-stage-0/decorator-support']
          }))
         .pipe(concat('bootstrap.min.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('watch', function () {
-    return gulp.watch('src/**/*.js', ['rex', 'atom', 'radio', 'bootstrap']);
+    return gulp.watch('src/**/*.js', ['rex', 'hook', 'atom', 'radio']);
 });
 
-gulp.task('default', ['rex', 'atom', 'radio', 'bootstrap', 'watch']);
+gulp.task('default', ['rex', 'hook', 'atom', 'radio', 'bootstrap', 'watch']);
