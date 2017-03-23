@@ -1,20 +1,14 @@
-Rex(function ({ atom }) {
+Rex(function ({ atom, hook }) {
 
   Object.assign(atom, {
 
-    detached: function (target, prop, descriptor) {
+    created: function (target, prop, descriptor) {
 
-      let hookDetached = target.detachedCallback || Function;
-
-      Object.assign(target, {
-        detachedCallback() {
-          this[prop](), hookDetached.call(this);
-        }      
+      hook.after(target, 'detachedCallback', function () {
+        this[prop]();
       });
 
-      Object.assign(descriptor, { enumerable: !0 });
-
-      return descriptor;
+      return Object.assign(descriptor, { enumerable: !0 });
 
     }
 

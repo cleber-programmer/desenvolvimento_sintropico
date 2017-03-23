@@ -1,32 +1,23 @@
-Rex(function ({ atom }) {
+Rex(function ({ atom, hook }) {
 
   Object.assign(atom, {
 
     event: function (event, query, bubbling) {
       return function (target, prop, descriptor) {
 
-        let hookCreated = target.createdCallback || Function;
-        let hookDetached = target.detachedCallback || Function;
-
         function action(e) {
           e.target.matches(query) && this[prop](e);
         }
 
-        Object.assign(target, {
-          
-          createdCallback() {
-            this.addEventListener(event, action.bind(this), bubbling), hookCreated.call(this);
-          },
-
-          detachedCallback() {
-            this.removeEventListener(event, action.bind(this), bubbling), hookDetached.call(this);
-          }
-
+        hook.after(target, 'createdCallback', function () {
+          this.addEventListener(event, action.bind(this), bubbling);
         });
 
-        Object.assign(descriptor, { enumerable: !0 });
+        hook.after(target, 'detachedCallback', function () {
+          this.removeEventListener(event, action.bind(this), bubbling);
+        });
 
-        return descriptor;
+        return Object.assign(descriptor, { enumerable: !0 });
 
       };
     }
