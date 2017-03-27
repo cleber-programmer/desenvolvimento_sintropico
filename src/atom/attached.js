@@ -8,7 +8,7 @@ Rex(function ({ atom, hook }) {
         this[prop]();
       });
 
-      return Object.assign(descriptor, { enumerable: !0 });
+      return descriptor;
 
     }
 

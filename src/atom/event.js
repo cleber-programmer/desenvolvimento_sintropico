@@ -2,7 +2,7 @@ Rex(function ({ atom, hook }) {
 
   Object.assign(atom, {
 
-    event: function (event, query, bubbling) {
+    event: function (event, query = '*', bubbling) {
       return function (target, prop, descriptor) {
 
         function action(e) {
@@ -17,7 +17,7 @@ Rex(function ({ atom, hook }) {
           this.removeEventListener(event, action.bind(this), bubbling);
         });
 
-        return Object.assign(descriptor, { enumerable: !0 });
+        return descriptor;
 
       };
     }

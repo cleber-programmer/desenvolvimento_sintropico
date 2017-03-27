@@ -6,8 +6,8 @@ Rex(function ({ atom }) {
       return function (target) {
 
       	document.registerElement(tagName, {
-          prototype: Object.assign(Object.create(HTMLUnknownElement.prototype), target.prototype),
-          extends: extending
+          prototype: Object.assign(Object.create(HTMLElement.prototype), target.prototype),
+          [extending ? 'extends' : '']: extending
         });
 
       };

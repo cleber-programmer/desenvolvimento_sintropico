@@ -14,7 +14,7 @@ Rex(function ({ atom, hook }) {
           contains(name) && (this[prop](newValue, oldValue, name), predicate.call(this, name, oldValue, newValue));
         });
 
-        return Object.assign(descriptor, { enumerable: !0 });
+        return descriptor;
 
       }
     }
