@@ -5,48 +5,21 @@ var sourceMaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
 gulp.task('rex', function () {
-    return gulp.src('src/rex.js')
+    return gulp.src([
+            'src/rex.js',
+            'src/atom/*.js',
+            'src/flip/*.js',
+            'src/guid/*.js',
+            'src/hook/*.js',
+            'src/memoize/*.js',
+            'src/radio/*.js',
+            'src/storage/*.js'
+         ])
         .pipe(sourceMaps.init())
         .pipe(babel({
             presets: ['react-native-stage-0/decorator-support']
          }))
         .pipe(concat('rex.min.js'))
-        .pipe(uglify())
-        .pipe(sourceMaps.write('.'))
-        .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('hook', function () {
-    return gulp.src('src/hook/*.js')
-        .pipe(sourceMaps.init())
-        .pipe(babel({
-            presets: ['react-native-stage-0/decorator-support']
-         }))
-        .pipe(concat('rex.hook.min.js'))
-        .pipe(uglify())
-        .pipe(sourceMaps.write('.'))
-        .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('atom', function () {
-    return gulp.src('src/atom/*.js')
-        .pipe(sourceMaps.init())
-        .pipe(babel({
-            presets: ['react-native-stage-0/decorator-support']
-         }))
-        .pipe(concat('rex.atom.min.js'))
-        .pipe(uglify())
-        .pipe(sourceMaps.write('.'))
-        .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('radio', function () {
-    return gulp.src('src/radio/*.js')
-        .pipe(sourceMaps.init())
-        .pipe(babel({
-            presets: ['react-native-stage-0/decorator-support']
-         }))
-        .pipe(concat('rex.radio.min.js'))
         .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
@@ -59,13 +32,16 @@ gulp.task('bootstrap', function () {
             presets: ['react-native-stage-0/decorator-support']
          }))
         .pipe(concat('bootstrap.min.js'))
-        .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('watch', function () {
-    return gulp.watch('src/**/*.js', ['rex', 'hook', 'atom', 'radio']);
+gulp.task('watch:rex', function () {
+    return gulp.watch('src/**/*.js', ['rex']);
 });
 
-gulp.task('default', ['rex', 'hook', 'atom', 'radio', 'bootstrap', 'watch']);
+gulp.task('watch:bootstrap', function () {
+    return gulp.watch('bootstrap.js', ['bootstrap']);
+});
+
+gulp.task('default', ['rex', 'bootstrap', 'watch:rex', 'watch:bootstrap']);
