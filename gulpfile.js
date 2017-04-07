@@ -4,16 +4,15 @@ var gulp = require('gulp');
 var sourceMaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
-gulp.task('rex', function () {
+gulp.task('polyfill', function () {
+    return gulp.src('node_modules/babel-polyfill/dist/polyfill.min.js')
+               .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('src', ['polyfill'], function () {
     return gulp.src([
             'src/rex.js',
-            'src/atom/*.js',
-            'src/flip/*.js',
-            'src/guid/*.js',
-            'src/hook/*.js',
-            'src/memoize/*.js',
-            'src/radio/*.js',
-            'src/storage/*.js'
+            'src/**/*.js'
          ])
         .pipe(sourceMaps.init())
         .pipe(babel({
@@ -25,23 +24,25 @@ gulp.task('rex', function () {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('bootstrap', function () {
-    return gulp.src('bootstrap.js')
+gulp.task('benchmark', function () {
+    return gulp.src('benchmark/**/*.js')
         .pipe(sourceMaps.init())
         .pipe(babel({
             presets: ['react-native-stage-0/decorator-support']
          }))
-        .pipe(concat('bootstrap.min.js'))
+        .pipe(concat('benchmark.min.js'))
+        .pipe(uglify())
         .pipe(sourceMaps.write('.'))
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('watch:rex', function () {
-    return gulp.watch('src/**/*.js', ['rex']);
+gulp.task('watch:src', function () {
+    return gulp.watch('src/**/*.js', ['src']);
 });
 
-gulp.task('watch:bootstrap', function () {
-    return gulp.watch('bootstrap.js', ['bootstrap']);
+gulp.task('watch:benchmark', function () {
+    return gulp.watch('benchmark/**/*.js', ['benchmark']);
 });
 
-gulp.task('default', ['rex', 'bootstrap', 'watch:rex', 'watch:bootstrap']);
+gulp.task('dev', ['src', 'benchmark', 'watch:src', 'watch:benchmark']);
+gulp.task('prod', ['src', 'benchmark']);
