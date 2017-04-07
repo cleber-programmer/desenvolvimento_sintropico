@@ -4,11 +4,12 @@
   "description": "JavaScript é como uma folha em branco - A liberdade de programar do jeito que lhe faça sentido",
   "main": "rex.ts",
   "scripts": {
-    "build": "gulp"
+    "test": ""
   },
   "author": "Cleber de Moraes Goncalves",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.0"
   },
