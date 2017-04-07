@@ -14,8 +14,14 @@ Para eventuais erros de digitação e/ou tradução, favor enviar um pull-reques
 ## Tabela de Conteúdos
 
 * [Rex](https://github.com/cleber-programmer/cleber.programmer/blob/master/src)
-* [atom](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/atom)
-* [radio](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/radio)
+* [contains](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/helpers/contains)
+* [guid](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/helpers/guid)
+* [radio](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/services/radio)
+* [storage](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/services/storage)
+* [atom](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/wrappers/atom)
+* [flip](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/wrappers/flip)
+* [hook](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/wrappers/hook)
+* [memoize](https://github.com/cleber-programmer/cleber.programmer/blob/master/src/wrappers/memoize)
 
 
 Leia a tradução do artigo [“How it feels to learn Javascript in 2016”](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.p89yfl61i), entenda **o porque** optei por não utilizar nenhum **Framework JavaScript**.
