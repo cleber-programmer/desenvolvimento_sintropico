@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  --COLOR-MASTER-DARK: #2C2C2C;
+  --COLOR-MASTER: #626262;
+  --COLOR-MASTER-LIGHT: #E6E6E6;
+  --COLOR-MASTER-LIGHTEST: #FAFAFA;
+
+  --COLOR-PRIMARY-DARKER: #413768;
+  --COLOR-PRIMARY-DARK: #5B4D91;
+  --COLOR-PRIMARY: #6D5CAE;
+  --COLOR-PRIMARY-LIGHT: #8A7DBE;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  color: var(--COLOR-MASTER);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: .5px;
+  line-height: 1.43;
+  outline: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+
+
+.header {
+  height: 70px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.header:after {
+  border-bottom: 1px solid var(--COLOR-MASTER-LIGHT);
+  content: '';
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 70px;
+  width: 100%;
+}
+
+.header_logo {
+  font-size: 2.5em;
+  font-weight: 100;
+  float: left;
+  line-height: 1;
+  padding: 17.8px 0;
+  width: 220px;
+}
+
+@media (min-width: 440px) {
+
+  .header {
+    max-width: 440px;
+  }
+
+}
+
+@media (min-width: 660px) {
+
+  .header {
+    max-width: 660px;
+  }
+
+}
+
+@media (min-width: 880px) {
+
+  .header {
+    max-width: 880px;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .header {
+    max-width: 1080px;
+    padding: 0;
+  }
+
+}
+
+
+
+.main {
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.main:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+@media (min-width: 440px) {
+
+  .main {
+    max-width: 440px;
+  }
+
+}
+
+@media (min-width: 660px) {
+
+  .main {
+    max-width: 660px;
+  }
+
+}
+
+@media (min-width: 880px) {
+
+  .main {
+    max-width: 880px;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .main {
+    max-width: 1080px;
+  }
+
+}
+
+
+
+.title {
+  font-size: 2em;
+  font-weight: 300;
+  padding: 20px 10px 50px 10px;
+  text-align: center;
+}
+
+.title_name {
+  color: var(--COLOR-PRIMARY-DARK);
+  font-weight: 700;
+}
+
+@media (min-width: 440px) {
+
+  .title {
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 660px) {
+
+  .title {
+    font-size: 2.3em;
+  }
+
+}
+
+@media (min-width: 880px) {
+
+  .title {
+    width: 62%;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .title {
+    font-size: 2.6em;
+    padding: 20px 0 50px 0;
+  }
+
+}
+
+
+  .search
+, .search-header {
+  border: 1px solid var(--COLOR-MASTER-LIGHT);
+  border-radius: 4px;
+  margin: 0 auto;
+  position: relative;
+  width: calc(100% - 20px);
+}
+
+.search-header {
+  border: none;
+  border-left: 1px solid var(--COLOR-MASTER-LIGHT);
+  border-radius: 0;
+  float: left;
+  width: calc(100% - 220px);
+}
+
+.search_label {
+  display: block;
+  font-weight: 700;
+  padding: 10px 0 0 10px;
+  width: 100%;
+}
+
+.search_input {
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1;
+  padding: 10px;
+  width: 100%;
+}
+
+.search_input:focus {
+  outline: none;
+}
+
+  .search_button
+, .search_button-header {
+  background: var(--COLOR-PRIMARY);
+  border: none;
+  border-radius: 4px;
+  color: var(--COLOR-MASTER-LIGHTEST);
+  cursor: pointer;
+  font-size: 1.2em;
+  height: calc(100% - 20px);
+  letter-spacing: .5px;
+  line-height: 1;
+  padding: 0 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.search_button-header {
+  right: 0;
+}
+
+@media (min-width: 1080px) {
+
+  .search {
+    width: 100%;
+  }
+
+}
+
+
+
+.tab {
+  border-bottom: 1px solid var(--COLOR-MASTER-LIGHT);
+  padding: 60px 10px 0 10px;
+}
+
+  .tab_item
+, .tab_item-active {
+  float: left;
+  padding: 10px 0;
+}
+
+.tab_item-active {
+  border-bottom: 2px solid var(--COLOR-PRIMARY-DARK);
+}
+
+  .tab_item:nth-child(2n+2)
+, .tab_item-active:nth-child(2n+2) {
+  margin-left: 40px;
+}
+
+.tab_link {
+  color: var(--COLOR-MASTER);
+  font-weight: 700;
+}
+
+.tab_list:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+@media (min-width: 1080px) {
+
+  .tab {
+    padding: 60px 0 0 0;
+  }
+
+}
+
+
+
+.category {
+  padding: 40px 10px 0 10px;
+  position: relative;
+}
+
+.category_title {
+  font-size: 1.4em;
+  font-weight: 300;
+  padding: 10px 0;
+}
+
+.category_more {
+  color: var(--COLOR-MASTER);
+  font-weight: 700;
+  position: absolute;
+  right: 10px;
+  top: 55px;
+}
+
+@media (min-width: 440px) {
+
+  .category_title {
+    font-size: 1.8em;
+  }
+
+  .category_more {
+    top: 60px;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .category {
+    padding: 40px 0 0 0;
+  }
+
+  .category_more {
+    right: 0;
+  }
+
+}
+
+
+
+.refining {
+  display: none;
+}
+
+@media (min-width: 880px) {
+
+  .refining {
+    display: block;
+    float: left;
+    width: 220px;
+  }
+
+}
+
+
+
+  .products
+, .products-search {
+  padding: 0 10px;
+}
+
+.products-search {
+
+}
+
+  .products:after
+, .products-search:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.products_item {
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 200px;
+}
+
+.products_link {
+  color: var(--COLOR-MASTER);
+}
+
+.products_img {
+  background: var(--COLOR-MASTER-LIGHTEST);
+  height: 200px;
+  width: 100%;
+}
+
+.product_name {
+  display: inline-block;
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.products_price {
+  color: var(--COLOR-PRIMARY-DARK);
+  display: block;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (min-width: 440px) {
+
+  .products_item {
+    float: left;
+    margin-left: 20px;
+  }
+
+}
+
+@media (min-width: 440px) and (max-width: 659px) {
+
+  .products_item:nth-child(2n+1) {
+    margin-left: 0;
+  }
+
+}
+
+@media (min-width: 660px) and (max-width: 879px) {
+
+  .products_item:nth-child(3n+1) {
+    margin-left: 0;
+  }
+
+}
+
+@media (min-width: 880px) {
+
+  .products .products_item:nth-last-child(1) {
+    display: none;
+  }
+
+  .products-search {
+    float: right;
+    max-width: 650px;
+    padding: 0 10px 0 0;
+  }
+
+}
+
+@media (min-width: 880px) and (max-width: 1099px) {
+
+  .products .products_item:nth-child(4n+1) {
+    margin-left: 0;
+  }
+
+  .products-search .products_item:nth-child(3n+1) {
+    margin-left: 0;
+  }
+
+  .products .products_item:nth-last-child(2) {
+    display: none;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .products {
+    padding: 0;
+  }
+
+  .products .products_item:nth-child(5n+1) {
+    margin-left: 0;
+  }
+
+  .products-search {
+    max-width: 860px;
+    padding: 0;
+  }
+
+  .products-search .products_item:nth-child(4n+1) {
+    margin-left: 0;
+  }
+
+}
+
+
+
+.footer {
+  border-top: 1px solid var(--COLOR-MASTER-LIGHT);
+  line-height: 1;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 20px 10px 40px 10px;
+}
+
+@media (min-width: 440px) {
+
+  .footer {
+    max-width: 440px;
+  }
+
+}
+
+@media (min-width: 660px) {
+
+  .footer {
+    max-width: 660px;
+  }
+
+}
+
+@media (min-width: 880px) {
+
+  .footer {
+    max-width: 880px;
+  }
+
+}
+
+@media (min-width: 1080px) {
+
+  .footer {
+    max-width: 1080px;
+    padding: 20px 0 40px 0;
+  }
+
+}
