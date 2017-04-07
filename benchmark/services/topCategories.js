@@ -1,5 +1,8 @@
 Rex('topCategories', function ({ config }) {
 
+  /**
+   * Este servico lista as principais categorias
+   */
   return async function () {
     return new Proxy(
       {
@@ -7,9 +10,14 @@ Rex('topCategories', function ({ config }) {
         'subCategory': []
       },
       {
+
+        /**
+         * Quando nao encontrado um valor, sera forcecido o valor padrao
+         */
         get(target, name, receiver) {
           return target['@'][name] || target[name];
         }
+
       }
     );
   };
