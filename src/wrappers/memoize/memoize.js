@@ -1,31 +1,20 @@
-Rex('memoize', function ({ flip, hook }) {
+Rex('memoize', function ({ ['memoize.decorate']: decorate, ['memoize.wrapper']: wrapper }) {
 
   /**
-   * Este docorador tem a responsabilidade de cachear o retorno do
-   * metodo, evitando que o metodo horiginal seja executado em chamadas
-   * sequentes
+   * Cacheia o retorno da funcao/metodo, evitando que a execucao do predicado
+   * seja executado em chamadas futuras
    */
-  return function (target, key, descriptor) {
+  return function () {
 
     /**
-     * Hook que verifica se o metodo alvo ja fora chamado, retornando
-     * o valor cacheado
+     * Encontra o modulo correspondente pela o numero
+     * de parametros correspondente ao numero de argumentos
      */
-    function hookCallback(method, ...args) {
-      return this[`@${args}`] || (this[`@${args}`] = method.apply(this, args));
-    }
+    return {
+        '1': wrapper
+      , '3': decorate
+    }[arguments.length].apply(this, arguments);
 
-    /**
-     * Encapsula o metodo horiginal pelo hookCallback
-     */
-    hook.before(descriptor, 'value', flip(hookCallback));
-
-    /**
-     * Retorna o descriptor com o metodo alvo alterado
-     * pela funcao hookCallback
-     */
-    return descriptor;
-    
-  }
+  };
 
 });
