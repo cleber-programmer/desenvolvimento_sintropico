@@ -1,4 +1,4 @@
-Rex(function ({ hook }) {
+Rex(function ({ hook, memoize }) {
 
   /**
    * Extensao do modulo Hook, inclusao da funcao after, que
@@ -15,8 +15,8 @@ Rex(function ({ hook }) {
          * devera retornar o valo
          */
         Object.assign(target, {
-        	[prop]: function () {
-        		return predicate.call(this, method.apply(this, arguments));
+        	[prop]() {
+        		return predicate.call(this, method.apply(this, arguments)), method.apply(this, arguments);
         	}
         });
       
@@ -24,7 +24,7 @@ Rex(function ({ hook }) {
        * Passando como parametro a funcao/metodo que tera o hook, caso
        * a funcao nao exista sera passado um stub
        */
-      })(target[prop] || function () {});
+      })(memoize(target[prop] || function () {}));
 
     }
   });

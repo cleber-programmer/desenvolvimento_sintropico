@@ -15,8 +15,8 @@ Rex(function ({ hook }) {
          * final dos argumentos
          */
         Object.assign(target, {
-        	[prop]: function () {
-        		return predicate.apply(this, [].concat(arguments, method));
+        	[prop]() {
+        		return predicate.apply(this, arguments), method.apply(this, arguments);
         	}
         });
       
