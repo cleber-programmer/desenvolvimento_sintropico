@@ -2,8 +2,7 @@
 
 > JavaScript é como uma folha em branco – "A liberdade de programar do jeito que lhe faça sentido!"
 
-
-Se você procura por um **Guia de Estilo**, **Design Pattern**, **Code Pattern**, **Anti Pattern** e **Arquitetura** com **JavaScript** -  *Vanilla JS*, então siga em frente! Estes estilos são baseados em minha experiência com desenvolvimento com **JavaScript**.
+Se você procura por um **Guia de Estilo**, **Design Pattern**, **Code Pattern**, **Anti Pattern** e **Arquitetura com Vanilla JS**, então siga em frente! Estes estilos são baseados em minha experiência com desenvolvimento com **JavaScript**.
 
 A proposta desta estruturação é fornecer uma direção na construção de **Arquitetura JavaScript** em **Aplicações de Larga Escala**, mostrando convenções que uso, e o mais importante, porque eu as escolhi.
 
