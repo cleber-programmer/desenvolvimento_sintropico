@@ -1,7 +1,7 @@
 Rex('contains', function () {
 
   /**
-   * Este modulo rerifica a existencia de um valor
+   * Este modulo verifica a existencia de um valor
    * dentro de uma colecao
    */
   return function (value, target) {

@@ -22,6 +22,9 @@ Rex(function ({ atom, contains, hook }) {
          */
         hook.before(target, 'attributeChangedCallback', hookCallback);
 
+        /**
+         * Retorna o descriptor sem nenhuma modificacao
+         */
         return descriptor;
 
       };
