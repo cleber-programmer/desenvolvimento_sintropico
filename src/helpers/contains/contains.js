@@ -1,11 +1,8 @@
-Rex('contains', function () {
+Rex('contains', ({ curry }) =>
 
   /**
    * Este modulo verifica a existencia de um valor
    * dentro de uma colecao
    */
-  return function (value, target) {
-    return !/\-1/.test(target.indexOf(value));
-  };
-
-});
+  curry((value, target) =>
+    !/\-1/.test(target.indexOf(value))));

@@ -1,0 +1,14 @@
+<script src="dist/polyfill.min.js"></script>
+<script src="dist/rex.min.js"></script>
+<script>
+
+  Rex(function ({ contains,  _ }) {
+
+    var nomes = ['thais', 'cleber', 'matheus'];
+    var x = contains(_, nomes)
+
+    console.log(x('cleber'));
+
+  });
+
+</script>
