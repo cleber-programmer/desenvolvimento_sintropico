@@ -5,7 +5,7 @@ Rex(function ({ storage }) {
    * pela chave forcecia
    */
   Object.assign(storage, {
-    set: function (key, value = null) {
+    set(key, value = null) {
 
       /**
        * Verifica se o valor fornecido é um Objeto ou Array, para executar

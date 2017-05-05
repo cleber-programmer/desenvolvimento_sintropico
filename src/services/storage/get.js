@@ -5,7 +5,7 @@ Rex(function ({ storage }) {
    * pela chave fornecido
    */
   Object.assign(storage, {
-    get: function (key, defaultValue = null) {
+    get(key, defaultValue = null) {
 
       /**
        * Parseia o valor caso ele seja um Objeto ou uma Colecao, caso contrario

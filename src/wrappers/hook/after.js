@@ -1,4 +1,4 @@
-Rex(function ({ hook, memoize }) {
+Rex(function ({ always, hook, memoize }) {
 
   /**
    * Extensao do modulo Hook, inclusao da funcao after, que
@@ -24,7 +24,9 @@ Rex(function ({ hook, memoize }) {
        * Passando como parametro a funcao/metodo que tera o hook, caso
        * a funcao nao exista sera passado um stub
        */
-      })(memoize(target[prop] || function () {}));
+      })(memoize(target[prop] || always()));
+
+      ;
 
     }
   });

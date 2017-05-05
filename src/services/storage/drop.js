@@ -5,7 +5,7 @@ Rex(function ({ storage }) {
    * todas as chaves com seu valores
    */
   Object.assign(storage, {
-    drop: function () {
+    drop() {
 
       /**
        * Limpa as chaves -> valores, posteriormente retornando o
