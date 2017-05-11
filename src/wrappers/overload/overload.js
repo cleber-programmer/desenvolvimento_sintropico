@@ -1,4 +1,4 @@
-Rex('overload', function () {
+Rex('overload', function ({ apply }) {
 
   /**
    * Modulo olverload é uma sobre carga de metodos, pela
@@ -15,7 +15,7 @@ Rex('overload', function () {
        */
       Object.assign(taraget, {
         [key]() {
-          return (overrid.length == arguments.length ? overrid : method).apply(this, arguments);
+          return apply((overrid.length == arguments.length ? overrid : method), arguments);
         }
       });
 

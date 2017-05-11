@@ -1,4 +1,4 @@
-Rex('memoize.decorate', function ({ flip, hook }) {
+Rex('memoize.decorate', function ({ apply, flip, hook }) {
 
   /**
    * Este docorador tem a responsabilidade de cachear o retorno do
@@ -12,7 +12,7 @@ Rex('memoize.decorate', function ({ flip, hook }) {
      * o valor cacheado
      */
     function hookCallback(method, ...args) {
-      return this[`@${args}`] || (this[`@${args}`] = method.apply(this, args));
+      return this[`@${args}`] || (this[`@${args}`] = apply(method, ...args));
     }
 
     /**

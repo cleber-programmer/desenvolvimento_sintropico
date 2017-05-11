@@ -1,16 +1,11 @@
-Rex('memoize', ({ ['memoize.decorate']: decorate, ['memoize.wrapper']: wrapper }) =>
+Rex('memoize', function ({ ['memoize.decorate']: decorate, ['memoize.wrapper']: wrapper }) {
 
   /**
    * Cacheia o retorno da funcao/metodo, evitando que a execucao do predicado
    * seja executado em chamadas futuras
    */
-  (...args) =>
+  return function () {
+    return { '1': wrapper, '3': decorate }[arguments.length].apply(this, arguments);
+  };
 
-    /**
-     * Encontra o modulo correspondente pela o numero
-     * de parametros correspondente ao numero de argumentos
-     */
-    ({
-      '1': wrapper
-     ,'3': decorate
-    }[args.length].apply(null, args)));
+});

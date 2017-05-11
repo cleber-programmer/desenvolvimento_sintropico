@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Roboto:300,500|Yrsa:300');
+
+* {
+  box-sizing: border-box;
+  color: #626262;
+  line-height: 1.45;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+figcaption {
+  padding: 10px 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+  .event
+, .event-odd
+, .event-pair {
+  padding: 20px 10px 30px 10px;
+  position: relative;
+
+  --date_color: #626262;
+  --date_font: 'Audiowide', cursive;
+  --date_size: 24px;
+
+  --name_color: #2C2C2C;
+  --name_font: 'Roboto', sans-serif;
+  --name_size: 24px;
+  --name_weight: 300;
+
+  --description_font: 'Yrsa', serif;
+  --description_size: 14px;
+  --desctiption_weight: 300;
+
+  --more_color: #626262;
+  --more_bg: #FFFFFF;
+  --more_bg-hover: #F0F0F0;
+  --more_border: #626262;
+  --more_border-hover: #626262;
+  --more_font: 'Roboto', sans-serif;
+  --more_size: 14px;
+  --more_weight: 500;
+
+  --timeline_color: #E6E6E6;
+}
+
+@media (min-width: 601px) {
+
+  .event-odd {
+    clear: right;
+    width: calc(50% - 10px);
+  }
+
+  .event-odd:after {
+    background: var(--timeline_color);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: -11px;
+    top: 0;
+    width: 1px;
+  }
+
+  .event-pair {
+    float: right;
+    width: calc(50% - 10px);
+  }
+
+  .event-pair:after {
+    background: var(--timeline_color);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 1px;
+  }
+
+}
+
+@media (min-width: 1025) {
+
+    .event
+  , .event-odd
+  , .event-pair {
+    padding: 20px 0 30px 0;
+  }
+
+}
+
+  .event_date
+, .event_date-odd
+, .event_date-pair {
+  color: var(--date_color);
+  font-family: var(--date_font);
+  font-size: var(--date_size);
+}
+
+@media (min-width: 601px) {
+
+    .event_date
+  , .event_date-odd {
+    float: right;
+  }
+
+  .event_date-pair {
+    float: left;
+  }
+
+}
+
+  .event_image
+, .event_image-odd
+, .event_image-pair {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  height: 262px;
+  text-indent: -9999px;
+}
+
+@media (min-width: 601px) {
+
+  .event_image {
+    height: 474px;
+  }
+
+}
+
+@media (min-width: 769px) {
+
+  .event_image {
+    height: 632px;
+  }
+
+}
+
+.event_name {
+  color: var(--name_color);
+  font-family: var(--name_font);
+  font-size: var(--name_size);
+  font-weight: var(--name_weight);
+  text-transform: uppercase;
+}
+
+.event_description {
+  font-family: var(--description_font);
+  font-size: var(--description_size);
+  font-weight: var(--description_weight);
+}
+
+  .event_more
+, .event_more:hover {
+  background; var(--more_bg);
+  border: 1px solid var(--more_border);
+  border-radius: 17px;
+  color: var(--more_color);
+  display: block;
+  font-family: var(--more_font);
+  font-size: var(--more_size);
+  line-height: 1;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 160px;
+}
+
+.event_more:hover {
+  background: var(--more_bg-hover);
+  border-color: var(--more_border-hover);
+}
+
+.info {
+  border-collapse: collapse;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto 20px auto;
+  width: 100%;
+
+  --item_divider: #E6E6E6;
+}
+
+@media (min-width: 601px) {
+
+  .event .info {
+    width: 50%;
+  }
+
+}
+
+.info_item {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.info_item:nth-last-child(1) {
+  border-bottom: 1px solid transparent;
+}
+
+.info_name {
+  padding: 10px 10px 10px 0;
+}
+
+.info_description {
+  padding: 10px;
+  text-align: right;
+}
+
+.info_price {
+  padding: 10px 0 10px 10px;
+  text-align: right;
+}
+
+.hotel {
+  margin: 0 auto;
+  max-width: 960px;
+
+  --back_color: #626262;
+  --back_bg: #FFFFFF;
+  --back_bg-hover: #F0F0F0;
+  --back_border: #626262;
+  --back_border-hover: #626262;
+  --back_font: 'Roboto', sans-serif;
+  --back_size: 14px;
+  --back_weight: 500;
+
+  --name_color: #2C2C2C;
+  --name_font: 'Roboto', sans-serif;
+  --name_size: 24px;
+  --name_weight: 300;
+
+  --star_color: #626262;
+  --star_size: 24px;
+
+  --description_font: 'Yrsa', serif;
+  --description_size: 14px;
+  --desctiption_weight: 300;
+
+  --tag_bg: #626262;
+  --tag_color: #FFFFFF;
+  --tag_font: 'Roboto', sans-serif;
+  --tag_size: 11px;
+  --tag_weight: 300;
+
+  --control_border: #626262;
+  --control_font: 'Roboto', sans-serif;
+  --control_size: 11px;
+
+  --submit_color: #626262;
+  --submit_bg: #FFFFFF;
+  --submit_bg-hover: #F0F0F0;
+  --submit_border: #626262;
+  --submit_border-hover: #626262;
+  --submit_font: 'Roboto', sans-serif;
+  --submit_size: 14px;
+  --submit_weight: 500;
+}
+
+.hotel:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.hotel_head {
+  padding-top: 10px;
+  position: relative;
+}
+
+.hotel_back {
+  background: var(--back_bg);
+  border: 1px solid var(--back_border);
+  border-radius: 17px;
+  color: var(--back_color);
+  display: block;
+  font-family: var(--back_font);
+  font-size: var(--back_size);
+  line-height: 1;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 160px;
+}
+
+.hotel_back:hover {
+  background: var(--back_bg-hover);
+  border-color: var(--back_border-hover);
+}
+
+.hotel_name {
+  color: var(--name_color);
+  font-family: var(--name_font);
+  font-size: var(--name_size);
+  font-weight: var(--name_weight);
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+
+.hotel_star {
+  bottom: 0;
+  color: var(--star_color);
+  font-size: var(--star_size);
+  position: absolute;
+  right: 0;
+}
+
+.hotel_image {
+  background: url("https://unsplash.it/700");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clear: both;
+  height: 588px;
+  text-indent: -9999px;
+}
+
+.hotel_body {
+  display: block;
+  float: left;
+  max-width: 62%;
+  padding: 10px 10px 0 0;
+}
+
+.hotel_description {
+  font-family: var(--description_font);
+  font-size: var(--description_size);
+  font-weight: var(--description_weight);
+  padding-bottom: 10px;
+}
+
+.hotel_amenities {
+  padding-bottom: 20px;
+}
+
+.hotel_tag {
+  background: var(--tag_bg);
+  border-radius: 10px;
+  color: var(--tag_color);
+  font-family: var(--tag_font);
+  font-size: var(--tag_size);
+  font-weight: var(--tag_weight);
+  display: inline-block;
+  padding: 2px 20px;
+  text-transform: uppercase;
+}
+
+.hotel_rooms {
+
+}
+
+.hotel_lead {
+  float: right;
+  padding-left: 10px;
+  width: 38%;
+}
+
+  .hotel_control
+, .hotel_control-submit {
+  border: 1px solid var(--control_border);
+  display: block;
+  font-family: var(--control_font);
+  font-size: var(--control_size);
+  float: left;
+  margin: 10px 0;
+  padding: 5px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.hotel_control-submit {
+  background: var(--submit_bg);
+  border: 1px solid var(--submit_border);
+  border-radius: 17px;
+  color: var(--submit_color);
+  cursor: pointer;
+  display: block;
+  font-family: var(--submit_font);
+  font-size: var(--submit_size);
+  line-height: 1;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 160px;
+}
+
+.hotel_control-submit:hover {
+  background: var(--submit_bg-hover);
+  border-color: var(--submit_border-hover);
+}
+
+.hotel_input {
+  border: none;
+  width: 100%;
+}
+
+.hotel_input:focus {
+  outline: none;
+}

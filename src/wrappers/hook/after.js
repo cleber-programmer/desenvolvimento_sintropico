@@ -16,7 +16,7 @@ Rex(function ({ always, hook, memoize }) {
          */
         Object.assign(target, {
         	[prop]() {
-        		return predicate.call(this, method.apply(this, arguments)), method.apply(this, arguments);
+            return predicate.apply(this, method.apply(this, arguments)), method.apply(this, arguments);
         	}
         });
       

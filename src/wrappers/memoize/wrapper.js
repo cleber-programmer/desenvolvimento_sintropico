@@ -1,15 +1,14 @@
-Rex('memoize.wrapper', ({ flip, hook }) =>
+Rex('memoize.wrapper', function ({ flip, hook }) {
 
   /**
    * Este wrapper tem a responsabilidade de cachear o retorno do
    * metodo, evitando que o metodo horiginal seja executado em chamadas
    * sequentes
    */
-  (target) =>
-    (...args) =>
+  return function (target) {
+    return function () {
+      return target[`@${arguments}`] || (target[`@${arguments}`] = target.apply(this, arguments));
+    };
+  };
 
-      /**
-       * Verifica se o metodo alvo ja fora chamado, retornando
-       * o valor cacheado
-       */
-      target[`@${args}`] || (target[`@${args}`] = target.apply(target, args)));
+});

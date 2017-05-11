@@ -1,4 +1,4 @@
-Rex('flip', () =>
+Rex('flip', ({ apply }) =>
 
   /**
    * Este modulo inverte a ordem dos pararametro e repassando para o
@@ -11,4 +11,4 @@ Rex('flip', () =>
      * frito a inversao desses valores sendo aplicado no predicado
      */
     (...args) =>
-      predicate.apply(this, args.reverse()));
+      apply(predicate, ...args.reverse()));
