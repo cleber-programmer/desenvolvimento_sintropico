@@ -5,4 +5,4 @@ Rex('apply', () =>
    * subsequentes
    */
   function (target, ...args) {
-    return target.apply(this, args); });
+    return target.apply(null, args); });
