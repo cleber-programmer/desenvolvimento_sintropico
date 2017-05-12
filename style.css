@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Audiowide|Roboto:300,500|Yrsa:300');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,500|Yrsa:300');
 
 * {
   box-sizing: border-box;
@@ -29,7 +29,7 @@ ul {
   position: relative;
 
   --date_color: #626262;
-  --date_font: 'Audiowide', cursive;
+  --date_font: 'Abril Fatface', cursive;
   --date_size: 24px;
 
   --name_color: #2C2C2C;
@@ -333,13 +333,28 @@ ul {
 }
 
 .hotel_image {
-  background: url("https://unsplash.it/700");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   clear: both;
-  height: 588px;
+  height: 262px;
   text-indent: -9999px;
+}
+
+@media (min-width: 601px) {
+
+  .hotel_image {
+    height: 474px;
+  }
+
+}
+
+@media (min-width: 769px) {
+
+  .hotel_image {
+    height: 632px;
+  }
+
 }
 
 .hotel_body {

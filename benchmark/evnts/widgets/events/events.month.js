@@ -1,5 +1,8 @@
 Rex('events.month', function () {
 
+  /**
+   * Retorna o mes correspondente
+   */
   return function (date) {
     return {
         '01': 'Janeiro'

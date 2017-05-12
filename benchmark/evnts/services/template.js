@@ -1,5 +1,9 @@
 Rex('template', function () {
 
+  /**
+   * Motor de template, utilizado para montar os layouts
+   * dos componentes
+   */
   return function (query, data) {
     return (Function("d", "var p=[];with(d){p.push('" +
       document.querySelector(query)
