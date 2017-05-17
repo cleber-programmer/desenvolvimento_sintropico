@@ -10,34 +10,42 @@ gulp.task('polyfill', function () {
 });
 
 gulp.task('rex', ['polyfill'], function () {
-  return gulp.src(['src/rex.js', 'src/**/*.js'])
+  return gulp.src(['src/rex.js', '!src/**/*.spec.js', 'src/**/*.js'])
              .pipe(sourceMaps.init())
              .pipe(babel({ presets: ['react-native-stage-0/decorator-support'] }))
              .pipe(concat('rex.min.js'))
-             // .pipe(uglify())
+             .pipe(uglify())
              .pipe(sourceMaps.write('.'))
              .pipe(gulp.dest('dist/'));
 });
+
+gulp.task('spec', ['rex'], function () {
+  return gulp.src(['src/**/*.spec.js'])
+             .pipe(sourceMaps.init())
+             .pipe(babel({ presets: ['react-native-stage-0/decorator-support'] }))
+             .pipe(concat('rex.spec.js'))
+             .pipe(sourceMaps.write('.'))
+             .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('watch', ['spec'], function () {
+  return gulp.watch('src/**/*.js', ['spec']);
+});
+
+// BENCHMARK ***********************************************************************************************
 
 gulp.task('evnts', ['rex'], function () {
   return gulp.src(['benchmark/evnts/**/*.js'])
              .pipe(sourceMaps.init())
              .pipe(babel({ presets: ['react-native-stage-0/decorator-support'] }))
              .pipe(concat('evnts.min.js'))
-             // .pipe(uglify())
+             .pipe(uglify())
              .pipe(sourceMaps.write('.'))
              .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('watch', function () {
-  return gulp.watch('src/**/*.js', ['rex']);
 });
 
 gulp.task('watch:evnts', ['watch'], function () {
   return gulp.watch('benchmark/evnts/**/*.js', ['evnts']);
 });
-
-gulp.task('dev', ['rex', 'watch']);
-gulp.task('prod', ['rex']);
 
 gulp.task('benchmark', ['evnts', 'watch:evnts']);

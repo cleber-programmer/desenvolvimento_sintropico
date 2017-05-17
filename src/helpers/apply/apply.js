@@ -1,8 +1,7 @@
 Rex('apply', () =>
 
   /**
-   * Executa a funcao passando os parametros
-   * subsequentes
+   * Aplica a uma funcao o conjunto de parametros
    */
-  function (target, ...args) {
-    return target.apply(null, args); });
+  (target, ...args) =>
+    target.apply(void 0, args));

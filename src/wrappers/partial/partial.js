@@ -1,8 +1,9 @@
-Rex('partial', () =>
+Rex('partial', (R) =>
 
   /**
    * Aplica os parametros na mesma sequencia, sem a
    * execucao da funcao
    */
-  (predicate, ...args) =>
-      predicate.bind(predicate, ...args));
+  (target, ...a) =>
+    (...b) =>
+      target(...R.concat(a, b)));

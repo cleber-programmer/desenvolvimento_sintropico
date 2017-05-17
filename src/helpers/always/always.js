@@ -1,8 +1,8 @@
 Rex('always', () =>
 
   /**
-   * Sempre retorna o mesmo valor quando a funcao de
-   * retorno for executado
+   * Retorna uma função que retorna o objeto
+   * inicialmente fornecido
    */
   (value) =>
     () => value);

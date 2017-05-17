@@ -4,6 +4,6 @@ Rex('curry', ({ ['curry.completed']: completed, ['curry.mapper']: mapper, ['curr
    * Retorna uma funcao equivalente que seus argumentos nao necessitan
    * de ser fornecida uma de cada vez
    */
-  (predicate) =>
+  (target) =>
     partial(function curry(feed, ...args) {
-      return mapper(feed, args), completed(feed) ? predicate(...feed) : partial(curry, feed); }, template(predicate)));
+      return completed(mapper(feed, args)) ? target(...mapper(feed, args)) : partial(curry, mapper(feed, args)); }, template(target)));

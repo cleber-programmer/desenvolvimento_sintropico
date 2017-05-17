@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Desenvolvimento Sintrópico . Unit Test</title>
+  <style>
+
+    @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300');
+
+    * {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 300;
+    }
+
+    dl#test {
+      font-size: 13px;
+    }
+
+      dl#test dt.pass
+    , dl#test dd.pass {
+      color: green;
+    }
+
+      dl#test dt.fail
+    , dl#test dd.fail {
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Desenvolvimento Sintrópico . Unit Test</h1>
+  <dl id="test"></dl>
+
+  <script>
+
+    (function () {
+
+      function ok(dt, conditional, description) {
+        dt.parentNode.insertBefore(klass(conditional, text(description, document.createElement('dd'))), dt.nextSibling),
+        conditional || klass(conditional, dt);
+      }
+
+      function group(name) {
+        return klass(true, text(name, document.querySelector('dl#test').appendChild(document.createElement('dt'))));
+      }
+
+      function klass(conditional, el) {
+        return el.className = conditional ? 'pass' : 'fail', el;
+      }
+
+      function text(text, el) {
+        return el.textContent = text, el;
+      }
+
+      Object.assign(window, {
+        it(title, target) {
+          target(ok.bind(null, group(title)));
+        }     
+      });
+
+    })();
+
+  </script>
+  <script src="dist/polyfill.min.js"></script>
+  <script src="dist/rex.min.js"></script>
+  <script src="dist/rex.spec.js"></script>
+
+</body>
+</html>
