@@ -31,21 +31,3 @@ gulp.task('spec', ['rex'], function () {
 gulp.task('watch', ['spec'], function () {
   return gulp.watch('src/**/*.js', ['spec']);
 });
-
-// BENCHMARK ***********************************************************************************************
-
-gulp.task('evnts', ['rex'], function () {
-  return gulp.src(['benchmark/evnts/**/*.js'])
-             .pipe(sourceMaps.init())
-             .pipe(babel({ presets: ['react-native-stage-0/decorator-support'] }))
-             .pipe(concat('evnts.min.js'))
-             .pipe(uglify())
-             .pipe(sourceMaps.write('.'))
-             .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('watch:evnts', ['watch'], function () {
-  return gulp.watch('benchmark/evnts/**/*.js', ['evnts']);
-});
-
-gulp.task('benchmark', ['evnts', 'watch:evnts']);
