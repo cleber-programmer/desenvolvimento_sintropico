@@ -24,7 +24,7 @@ Rex('radio', function ({ ['radio.handlers']: handlers, ['radio.proxy']: proxy })
      * Desliga todas as escultas
      */
     function drop() {
-      return handlers.get(context).clear(), this;
+      return handlers.delete(context), this;
     }
 
     /**
