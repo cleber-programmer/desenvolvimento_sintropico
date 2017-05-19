@@ -1,10 +1,10 @@
-Rex(function ({ atom, hook }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo atom, executa os metodo apontoado no decorado que
    * indica o evento de interesse que atenda a query de selecao
    */
-  Object.assign(atom, {
+  Object.assign(R.atom, {
     event(event, query = '*', bubbling) {
       return function (target, prop, descriptor) {
 
@@ -35,12 +35,12 @@ Rex(function ({ atom, hook }) {
         /**
          * Adiciona um hook no metodo createdCallbac pelo hookCreatedCallback 
          */
-        hook.after(target, 'createdCallback', hookCreatedCallback);
+        R.hook.after('createdCallback', target, hookCreatedCallback);
 
         /**
          * Adiciona um hook no metodo detachedCallbac pelo hookDetachedCallback 
          */
-        hook.after(target, 'detachedCallback', hookDetachedCallback);
+        R.hook.after('detachedCallback', target, hookDetachedCallback);
 
         /**
          * Retorna o descriptor sem nenhuma modificacao

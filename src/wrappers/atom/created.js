@@ -1,11 +1,11 @@
-Rex(function ({ atom, hook }) {
+Rex(function () {
 
   /**
    * Extensao do modulo atom, funciona com um constructor;
    * Decorador created executa um metodo quando o Web Component for
    * criado, antes de ser apendado no DOM
    */
-  Object.assign(atom, {
+  Object.assign(R.atom, {
     created(target, prop, descriptor) {
 
       /**
@@ -21,7 +21,7 @@ Rex(function ({ atom, hook }) {
        * disparo para o metodo apontotado no decorador no momento em que
        * o Web Component for criado
        */
-      hook.after(target, 'createdCallback', hookCallback);
+      R.hook.after('createdCallback', target, hookCallback);
 
       /**
        * Retorna o descriptor sem nenhuma modificacao

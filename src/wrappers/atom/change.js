@@ -1,10 +1,10 @@
-Rex(function ({ atom, contains, hook }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo atom, o decorador change notifica o metodo
    * decorado quando o atributo identificado for alterado
    */
-  Object.assign(atom, {
+  Object.assign(R.atom, {
     change(...properties) {
       return function (target, prop, descriptor) {
 
@@ -13,14 +13,14 @@ Rex(function ({ atom, contains, hook }) {
          * propriedade alterado
          */
         function hookCallback(name, oldValue, newValue) {
-          contains(name, properties) && (this[prop](newValue, oldValue, name));
+          R.contains(name, properties) && (this[prop](newValue, oldValue, name));
         }
 
         /**
          * Altera o metodo attributeChangedCallback para incluir o hook, no momento
          * que este metodo for chamado, sera repassado para o metodo que fora decorado
          */
-        hook.before(target, 'attributeChangedCallback', hookCallback);
+        R.hook.before('attributeChangedCallback', target, hookCallback);
 
         /**
          * Retorna o descriptor sem nenhuma modificacao

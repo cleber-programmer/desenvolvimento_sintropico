@@ -1,11 +1,11 @@
-Rex(function ({ always, hook, memoize }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo Hook, inclusao da funcao after, que
    * executara apos a execao da funcao indicada
    */
-  Object.assign(hook, {
-    after: function (target, prop, predicate) {
+  Object.assign(R.hook, {
+    after: function (prop, target, predicate) {
 
       (function (method) {
 
@@ -24,9 +24,7 @@ Rex(function ({ always, hook, memoize }) {
        * Passando como parametro a funcao/metodo que tera o hook, caso
        * a funcao nao exista sera passado um stub
        */
-      })(memoize(target[prop] || always()));
-
-      ;
+      })(R.memoize(target[prop] || R.always()));
 
     }
   });

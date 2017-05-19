@@ -1,10 +1,10 @@
-Rex(function ({ atom, hook }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo atom, decorador attached executa um metodo
    * quando o Web Component for apendado no DOM
    */
-  Object.assign(atom, {
+  Object.assign(R.atom, {
     attached(target, prop, descriptor) {
 
       /**
@@ -20,7 +20,7 @@ Rex(function ({ atom, hook }) {
        * disparo para o metodo apontotado no decorador no momento em que
        * o Web Component for atachado no DOM
        */
-      hook.after(target, 'attachedCallback', hookCallback);
+      R.hook.after('attachedCallback', target, hookCallback);
 
       /**
        * Retorna o descriptor sem nenhuma modificacao

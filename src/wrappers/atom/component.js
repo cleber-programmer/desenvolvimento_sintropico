@@ -1,10 +1,10 @@
-Rex(function ({ atom }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo atom, o decorador componente cria um componente
    * como o nome da tag quer fora passado
    */
-	Object.assign(atom, {
+	Object.assign(R.atom, {
     component(tagName, extending) {
       return function (target) {
 

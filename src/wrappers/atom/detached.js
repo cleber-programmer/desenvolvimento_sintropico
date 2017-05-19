@@ -1,11 +1,11 @@
-Rex(function ({ atom, hook }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo atom, funciona como um deconstructor;
    * Decorador detached executa um metodo quando o Web Component
    * for retirado do DOM
    */
-  Object.assign(atom, {
+  Object.assign(R.atom, {
     detached(target, prop, descriptor) {
 
       /**
@@ -21,7 +21,7 @@ Rex(function ({ atom, hook }) {
        * disparo para o metodo apontotado no decorador no momento em que
        * o Web Component for retirado do DOM
        */
-      hook.after(target, 'detachedCallback', hookCallback);
+      R.hook.after('detachedCallback', target, hookCallback);
 
       /**
        * Retorna o descriptor sem nenhuma modificacao

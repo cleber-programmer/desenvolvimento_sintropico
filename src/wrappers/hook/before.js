@@ -1,11 +1,11 @@
-Rex(function ({ hook }) {
+Rex(function (R) {
 
   /**
    * Extensao do modulo Hook, inclusao da funcao before, que
    * executara apos a execao da funcao indicada
    */
-  Object.assign(hook, {
-    before: function (target, prop, predicate) {
+  Object.assign(R.hook, {
+    before: function (prop, target, predicate) {
 
       (function (method) {
 
