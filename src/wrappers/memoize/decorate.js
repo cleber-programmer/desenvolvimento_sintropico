@@ -18,7 +18,7 @@ Rex('memoize.decorate', function ({ apply, flip, hook }) {
     /**
      * Encapsula o metodo horiginal pelo hookCallback
      */
-    hook.before(descriptor, 'value', flip(hookCallback));
+    hook.before('value', descriptor, flip(hookCallback));
 
     /**
      * Retorna o descriptor com o metodo alvo alterado

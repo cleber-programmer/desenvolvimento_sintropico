@@ -6,6 +6,7 @@ Rex(function (R) {
    */
   Object.assign(R.atom, {
     event(event, query = '*', bubbling) {
+
       return function (target, prop, descriptor) {
 
         /**
@@ -48,6 +49,7 @@ Rex(function (R) {
         return descriptor;
 
       };
+      
     }
   });
 

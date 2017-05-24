@@ -24,7 +24,7 @@ Rex(function (R) {
        * Passando como parametro a funcao/metodo que tera o hook, caso
        * a funcao nao exista sera passado um stub
        */
-      })(R.memoize(target[prop] || R.always()));
+      })(R.memoize(target[prop]) || R.always());
 
     }
   });

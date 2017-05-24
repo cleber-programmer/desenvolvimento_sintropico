@@ -5,7 +5,10 @@ Rex('memoize', function ({ ['memoize.decorate']: decorate, ['memoize.wrapper']: 
    * seja executado em chamadas futuras
    */
   return function () {
-    return { '1': wrapper, '3': decorate }[arguments.length].apply(this, arguments);
+    return {
+        '1': wrapper
+      , '3': decorate
+    }[arguments.length].apply(this, arguments);
   };
 
 });
